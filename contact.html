@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Cool Flow - Get in Touch</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Liquid Flow Background */
+        .liquid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(-45deg, #ff5e7d, #6e72fc, #4bc0c8, #c471f5);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            overflow: hidden;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .liquid-shape {
+            position: absolute;
+            border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;
+            background: rgba(255,255,255,0.1);
+            filter: blur(30px);
+            animation: morph 15s infinite linear;
+        }
+        
+        @keyframes morph {
+            0% { border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%; }
+            50% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            100% { border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%; }
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #fff, #4bc0c8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+        
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.4);
+            backdrop-filter: blur(5px);
+        }
+        
+        .nav-button:hover {
+            background-color: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .nav-button.active {
+            background-color: white;
+            color: #ff5e7d;
+            font-weight: 700;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background-color: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 10px;
+            border: none;
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            background-color: rgba(255,255,255,0.3);
+            box-shadow: 0 0 0 2px rgba(255,255,255,0.3);
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            display: inline-block;
+            background-color: white;
+            color: #ff5e7d;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .contact-info {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: scale(1.2);
+            color: #4bc0c8;
+        }
+        
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Liquid Background -->
+    <div class="liquid-background" id="liquidBg"></div>
+    
+    <div class="container">
+        <header>
+            <h1 class="logo">COOL FLOW</h1>
+            <p class="tagline">Let's Connect • Share Your Flow • Join the Vibe</p>
+        </header>
+        
+        <!-- Navigation Buttons -->
+        <div class="nav-buttons">
+            <a href="homepage.html" class="nav-button">Home</a>
+            <a href="videos.html" class="nav-button">Videos</a>
+            <a href="aboutus.html" class="nav-button">About Us</a>
+            <a href="contact.html" class="nav-button active">Contact</a>
+        </div>
+        
+        <div class="contact-form">
+            <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;">Get In Touch</h2>
+            
+            <form>
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" placeholder="Your Beautiful Name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Song You Want</label>
+                    <input type="email" id="email" placeholder="Request" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message Us</label>
+                    <textarea id="message" placeholder="Share your thoughts, questions, or vibes..." required></textarea>
+                </div>
+                
+                <div style="text-align: center;">
+                    <button type="submit" class="submit-btn">Send Us Message</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="contact-info">
+            <h3>Or reach us directly</h3>
+            <p>Email: <a href="mailto:contact@coolflow.com" style="color: white;">contact@coolflow.com</a></p>
+            
+            <div class="social-links">
+                <a href="https://youtube.com/@coolflow27" target="_blank" title="YouTube">▶️</a>
+                <a href="#" target="_blank" title="Instagram">📸</a>
+                <a href="#" target="_blank" title="Twitter">🐦</a>
+                <a href="#" target="_blank" title="Discord">💬</a>
+            </div>
+        </div>
+        
+        <footer>
+            &copy; 2023 Cool Flow | All about that chill life
+        </footer>
+    </div>
+
+    <script>
+        // Create liquid background shapes
+        document.addEventListener('DOMContentLoaded', function() {
+            const liquidBg = document.getElementById('liquidBg');
+            const colors = ['rgba(255,255,255,0.1)', 'rgba(200,200,255,0.08)', 'rgba(255,200,255,0.07)'];
+            
+            // Create 3 liquid shapes
+            for (let i = 0; i < 3; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('liquid-shape');
+                
+                // Random properties
+                const width = Math.random() * 600 + 400;
+                const height = Math.random() * 600 + 400;
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                const duration = Math.random() * 10 + 20;
+                const delay = Math.random() * -15;
+                const color = colors[i % colors.length];
+                
+                shape.style.width = `${width}px`;
+                shape.style.height = `${height}px`;
+                shape.style.left = `${left}%`;
+                shape.style.top = `${top}%`;
+                shape.style.animationDuration = `${duration}s`;
+                shape.style.animationDelay = `${delay}s`;
+                shape.style.background = color;
+                shape.style.opacity = Math.random() * 0.3 + 0.1;
+                
+                liquidBg.appendChild(shape);
+            }
+        });
+    </script>
+</body>
+</html>
